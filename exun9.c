@@ -48,7 +48,7 @@ int main(){
         }
       }
 
-      if(salario <= 1000){
+      else if(salario <= 1000){
         printf("reajuste de 20%%. Novo salario: %2.f + ", nsalario20);
 
         if(tempoDeServico < 1){
@@ -68,7 +68,7 @@ int main(){
         }
       }
 
-      if(salario <= 1500){
+      else if(salario <= 1500){
         printf("reajuste de 15%%. Novo salario: %2.f + ", nsalario15);
 
         if(tempoDeServico < 1){
@@ -88,7 +88,7 @@ int main(){
         }
       }
 
-      if(salario <= 2000){
+      else if(salario <= 2000){
         printf("reajuste de 10%%. Novo salario: %2.f + ", nsalario10);
 
         if(tempoDeServico < 1){
@@ -108,7 +108,7 @@ int main(){
         }
       }
 
-      if(salario > 2000){
+      else if(salario > 2000){
         printf("Sem reajuste. Salario + ");
 
         if(tempoDeServico < 1){
@@ -127,6 +127,9 @@ int main(){
             printf("Bonus de 500R$");
         }
       }
+    else{
+        printf("valor invalido");
+    }
     
 
     return 0;
