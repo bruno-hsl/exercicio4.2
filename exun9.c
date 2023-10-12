@@ -1,136 +1,37 @@
 #include <stdio.h>
 
-int main(){
-    /*Uma empresa decide dar um aumento aos seus funcionários de acordo com uma tabela que considera
-     o salario atual e o tempo de serviço de cada funcionário. Os funcionários com menor salario 
-     terão um aumento proporcionalmente maior do que os funcionários  com um salario maior,
-      e conforme o tempo de serviço na empresa, cada funcionário irá receber um bônus 
-      adicional de salário. Faça um programa que leia:
-      
-      • o valor do salario atual do funcionário; 
+int main() {
+    float salario, tempoDeServico, novoSalario;
 
-     •o tempo de serviço desse funcionário na empresa (número de anos de trabalho na empresa).
+    printf("Digite o salário atual do funcionário: ");
+    scanf("%f", &salario);
 
-     Use as tabelas abaixo para calcular o salario reajustado deste funcionário e imprima o valor do
-     salario final reajustado, ou uma mensagem caso o funcionário não tenha direito a nenhum aumento. 
-      */
+    printf("Digite o tempo de serviço (em anos) do funcionário: ");
+    scanf("%f", &tempoDeServico);
 
-    float salario, tempoDeServico, nsalario25, nsalario20, nsalario15, nsalario10;
-
-      printf("Digite seu salario: ");
-      scanf("%f", &salario);
-
-      printf("Tempo de servico: ");
-      scanf("%f", &tempoDeServico);
-
-      nsalario25 = (salario * 0.25) + salario;
-      nsalario20 = (salario * 0.20) + salario;
-      nsalario15 = (salario * 0.15) + salario;
-      nsalario10 = (salario * 0.10) + salario;
-
-      if(salario <= 500){
-        printf("reajuste de 25%%. Novo salario: %2.f + ", nsalario25);
-
-        if(tempoDeServico < 1){
-            printf("Sem bonus");
-        }
-        else if(tempoDeServico >=1 && tempoDeServico <= 3){
-        printf("Bonus de 100R$");
-        }
-         else if(tempoDeServico >=4 && tempoDeServico <= 6){
-        printf("Bonus de 200R$");
-        }
-         else if(tempoDeServico >=7 && tempoDeServico <= 10){
-        printf("Bonus de 300R$");
-        }
-        else{
-            printf("Bonus de 500R$");
-        }
-      }
-
-      else if(salario <= 1000){
-        printf("reajuste de 20%%. Novo salario: %2.f + ", nsalario20);
-
-        if(tempoDeServico < 1){
-            printf("Sem bonus");
-        }
-        else if(tempoDeServico >=1 && tempoDeServico <= 3){
-        printf("Bonus de 100R$");
-        }
-         else if(tempoDeServico >=4 && tempoDeServico <= 6){
-        printf("Bonus de 200R$");
-        }
-         else if(tempoDeServico >=7 && tempoDeServico <= 10){
-        printf("Bonus de 300R$");
-        }
-        else{
-            printf("Bonus de 500R$");
-        }
-      }
-
-      else if(salario <= 1500){
-        printf("reajuste de 15%%. Novo salario: %2.f + ", nsalario15);
-
-        if(tempoDeServico < 1){
-            printf("Sem bonus");
-        }
-        else if(tempoDeServico >=1 && tempoDeServico <= 3){
-        printf("Bonus de 100R$");
-        }
-         else if(tempoDeServico >=4 && tempoDeServico <= 6){
-        printf("Bonus de 200R$");
-        }
-         else if(tempoDeServico >=7 && tempoDeServico <= 10){
-        printf("Bonus de 300R$");
-        }
-        else{
-            printf("Bonus de 500R$");
-        }
-      }
-
-      else if(salario <= 2000){
-        printf("reajuste de 10%%. Novo salario: %2.f + ", nsalario10);
-
-        if(tempoDeServico < 1){
-            printf("Sem bonus");
-        }
-        else if(tempoDeServico >=1 && tempoDeServico <= 3){
-        printf("Bonus de 100R$");
-        }
-         else if(tempoDeServico >=4 && tempoDeServico <= 6){
-        printf("Bonus de 200R$");
-        }
-         else if(tempoDeServico >=7 && tempoDeServico <= 10){
-        printf("Bonus de 300R$");
-        }
-        else{
-            printf("Bonus de 500R$");
-        }
-      }
-
-      else if(salario > 2000){
-        printf("Sem reajuste. Salario + ");
-
-        if(tempoDeServico < 1){
-            printf("Sem bonus");
-        }
-        else if(tempoDeServico >=1 && tempoDeServico <= 3){
-        printf("Bonus de 100R$");
-        }
-         else if(tempoDeServico >=4 && tempoDeServico <= 6){
-        printf("Bonus de 200R$");
-        }
-         else if(tempoDeServico >=7 && tempoDeServico <= 10){
-        printf("Bonus de 300R$");
-        }
-        else{
-            printf("Bonus de 500R$");
-        }
-      }
-    else{
-        printf("valor invalido");
+    if (salario <= 500) {
+        novoSalario = salario * 1.25;
+    } else if (salario <= 1000) {
+        novoSalario = salario * 1.20; 
+    } else if (salario <= 1500) {
+        novoSalario = salario * 1.15;
+    } else if (salario <= 2000) {
+        novoSalario = salario * 1.10; 
+    } else {
+        novoSalario = salario; 
     }
-    
+
+    if (tempoDeServico >= 1 && tempoDeServico <= 3) {
+        novoSalario += 100; 
+    } else if (tempoDeServico >= 4 && tempoDeServico <= 6) {
+        novoSalario += 200; 
+    } else if (tempoDeServico >= 7 && tempoDeServico <= 10) {
+        novoSalario += 300; 
+    } else if (tempoDeServico > 10) {
+        novoSalario += 500;
+    }
+
+    printf("Novo salário reajustado: R$%.2f\n", novoSalario);
 
     return 0;
 }
